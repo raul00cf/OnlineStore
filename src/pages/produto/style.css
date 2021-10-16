@@ -1,0 +1,104 @@
+
+.content {
+  background-color: #e2e2e2;
+}
+
+.product-container {
+  margin: 40px auto;
+  width: 80%;
+  border-radius: 40px;
+  box-shadow: 10px 10px 5px gray;
+  background-color: white;
+}
+
+.inner-product-container {
+  display: flex;
+}
+
+.product-show img {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+
+  margin: 40px;
+}
+
+.product-all-info {
+  float: right;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-right: 40px;
+}
+
+.product-name {
+  font-size: xx-large;
+}
+
+.storage-box {
+  margin-bottom: 10px;
+}
+
+.storage-box p {
+  font-size: smaller;
+}
+
+.product-shop-description {
+  display: flex;
+}
+
+.product-info-container {
+  float: left;
+  width: 80%;
+  display: flex;
+}
+
+.product-info {
+  float: left;
+  width: calc(100% - 200px);
+  padding-right: 40px;
+}
+
+.description {
+  font-size: x-large;
+}
+
+.description-box {
+  width: 100%;
+}
+
+.product-shop {
+  float: right;
+  width: 200px;
+}
+
+.product-price {
+  width: 100%;
+  text-align: right;
+}
+
+.price {
+  font-size: x-large;
+}
+
+.partion-price {
+  font-size: small;
+  margin-top: -4px;
+}
+
+.product-quantity {
+  margin-top: 100px;
+  font-size: large;
+}
+
+.product-button-add {
+  margin: 50px auto;
+  font-display: middle;
+  background-color:rgb(112, 19, 6);
+  width: 200px;
+  max-width: 100%;
+  height: 50px;
+  color: white;
+  font-size: larger;
+  display: block;
+}

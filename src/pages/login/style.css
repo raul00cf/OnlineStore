@@ -1,0 +1,80 @@
+
+.signin-container {
+  width: 100%;
+  height: auto;
+}
+
+.inner-signin-container {
+  display: flex;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /*background-color: #e2e2e2;*/
+}
+
+.signin-part {
+  float: left;
+}
+
+.login-part {
+  float: right;
+  border-left: 1px solid gray;
+}
+
+.signin-part, .login-part {
+  width: 50%;
+  padding-left: 80px;
+}
+
+.signin-part button, .login-part button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  font-display: middle;
+  background-color:rgb(112, 19, 6);
+  width: 120px;
+  height: 50px;
+  color: white;
+  font-size: larger;
+  display: block;
+}
+
+.signin-part input, .login-part input {
+  width: 220px;
+}
+
+.p2 {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+@media(max-width: 750px) {
+  .signin-part, .login-part {
+    padding-left: 20px;
+  }
+}
+
+@media(max-width: 550px) {
+  .inner-signin-container {
+    display: block;
+  }
+
+  .signin-part {
+    border-bottom: 1px solid gray;
+  }
+
+  .signin-part, .login-part {
+    float: none;
+    width: 100%;
+    padding-left: 80px;
+    padding-bottom: 1px;
+  }
+}
+
+@media(max-width: 350px) {
+  .signin-part, .login-part {
+    float: none;
+    width: 100%;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+}
