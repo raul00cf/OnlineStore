@@ -12,4 +12,138 @@ html, body {
   height: calc(100% - 60px - 11rem);
   width: 100%;
   background-color: rgb(95, 95, 95);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+}
+
+.carrossel-product-container {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #e2e2e2;
+  border-radius: 20px;
+}
+
+.carrossel-header {
+  width: 100%;
+  height: 100px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.carrossel-header p {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.carrossel-image {
+  height: calc(100% - 100px);
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.carrossel-product-container img {
+  height: 100%;
+  width: auto;
+  display:block;
+  margin:auto;
+  border-radius: 20px;
+}
+
+.arrow {
+  font-size: 100px;
+  width: 15%;
+  padding-top: 240px;
+}
+
+.left {
+  text-align: right;
+}
+
+@media(max-width: 880px) {
+  .carrossel-product-container {
+    height: fit-content;
+  }
+
+  .carrossel-image {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .carrossel-product-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .arrow {
+    padding-top: 25%;
+  }
+}
+
+@media(max-width: 800px) {
+  .carrossel-product-container {
+    width: 80%;
+  }
+
+  .arrow {
+    width: 10%;
+    padding-top: 30%;
+  }
+}
+
+@media(max-width: 600px) {
+  .carrossel-header p {
+    font-size: x-large;
+  }
+
+  .carrossel-product-container {
+    width: 80%;
+  }
+
+  .arrow {
+    font-size: 50px;
+    width: 10%;
+    padding-top: 40%;
+  }
+}
+
+@media(max-width: 500px) {
+  .carrossel-header {
+    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .carrossel-header p {
+    font-size: larger;
+  }
+
+  .carrossel-image {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media(max-width: 400px) {
+  .carrossel-header p {
+    font-size: medium;
+  }
+
+  .carrossel-container {
+    height: calc(100% - 60px - 7rem);
+  }
+}
+
+@media(max-width: 360px) {
+  .carrossel-product-container {
+    width: 90%;
+  }
+
+  .arrow {
+    font-size: 25px;
+    width: 5%;
+    padding-top: 45%;
+  }
 }
