@@ -1,17 +1,4 @@
 # OnlineStore
+Virus Mask's ecommerce for SSC0219 - Introdução Desenvolvimento Web 
 
-### Requirements
-
-### Project Description
-
-### Comments About the Code
-
-### Test Plan
-
-### Test Results
-
-### Build Procedures
-
-### Problems
-
-### Comments
+Milestone Report at Milestone Report PDF file.
