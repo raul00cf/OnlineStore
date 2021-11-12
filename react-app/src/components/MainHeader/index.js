@@ -27,18 +27,22 @@ const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callback
             )
           }}>
           <li>
-            <img src={signIn} alt="sing-in" />
-            <span>
-              {login ? "Log out" : "Sign in"}
-            </span>
+            <p>
+              <img src={signIn} alt="sing-in" />
+              <span>
+                {login ? "Log out" : "Sign in"}
+              </span>
+            </p>
           </li>
         </button>
         <button onClick={callbackCart}>
           <li>
-            <img src={cart} alt="cart" />
-            <span>
-              0
-            </span>
+            <p>
+              <img src={cart} alt="cart" />
+              <span>
+                0
+              </span>
+            </p>
           </li>
         </button>
       </NavigationContainer>

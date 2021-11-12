@@ -37,7 +37,9 @@ export const LogoContainer = styled.img`
 
 export const NavigationContainer = styled.ul`
   float: right;
-  height: 100%;
+  height: 11rem;
+  padding-top: 75px;
+  padding-bottom: 75px;
 
   button {
     height: 100%;
@@ -55,8 +57,18 @@ export const NavigationContainer = styled.ul`
       display: table-cell;
       vertical-align: middle;
 
+      p {
+        display: flex;
+      }
+
       img {
         width: 25px;
+      }
+
+      span {
+        margin-top: 4px;
+        margin-left: 3px;
+        font-size: 17px;
       }
     }
   }

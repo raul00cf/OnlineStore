@@ -8,16 +8,19 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-
   margin: auto;
+
+  h1 {
+    text-align: center;
+  }
 `;
 
 export const Header = styled.div`
+  margin: auto;
   padding: 20px;
-  font-size: 20px;
   font-weight: bold;
 `;
 
 export const Info = styled.div`
-  
+  width: 100%;
 `;

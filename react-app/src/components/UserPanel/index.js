@@ -1,24 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Wrapper, Content, Header, Info } from './UserPanel.styles';
 
 import UserInfo from '../UserInfo';
+import ProductsList from '../ProductsList';
 
-const UserPanel = ({ admin, user }) => {
-
-  const [ option, setOption ] = useState('info');
+const UserPanel = ({ admin, user, products }) => {
 
   return (
   <Wrapper>
     <Content>
       <Header>
-        Informações da Conta
+        <h1>
+          {admin ? (
+            'Produtos'
+          ) : (
+            'Informações da Conta'
+          )}
+        </h1>
       </Header>
       <Info>
         {admin ? (
-          <p>
-            alo
-          </p>
+          <ProductsList products={products} />
         ) : (
           <UserInfo user={user} />
         )}

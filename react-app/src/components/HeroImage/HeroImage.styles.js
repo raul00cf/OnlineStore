@@ -15,7 +15,7 @@ export const Content = styled.div`
   margin: 0 auto;
   background-color: #e2e2e2;
   border-radius: 20px;
-
+  box-shadow: 10px 10px 20px black;
   cursor: pointer;
 `;
 

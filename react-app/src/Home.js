@@ -181,6 +181,7 @@ const Home = () => {
         callbackReset={() => {
           setSigningIn(false);
           setUserPage(false);
+          setShowingProduct(false);
         }}
         callbackSign={() => setSigningIn(true)} 
         callbackLogout={() => {
@@ -202,7 +203,7 @@ const Home = () => {
           console.log(users);
         }} setLogin={setLogin} setSignin={setSigningIn} setAdmin={setAdmin} />
       ) : (userPage ? (
-        <UserPanel admin={admin} user={user} />
+        <UserPanel admin={admin} user={user} products={products} />
       ) : (showingProduct ? (
           <Product product={products[product]} />
         ) : (
