@@ -54,6 +54,10 @@ export const NavigationContainer = styled.ul`
     li {
       display: table-cell;
       vertical-align: middle;
+
+      img {
+        width: 25px;
+      }
     }
   }
 `;

@@ -5,16 +5,21 @@ import { Wrapper, Content, LogoContainer, NavigationContainer } from './MainHead
 import logo from "../../images/masc1.png";
 import signIn from "../../images/signin.svg";
 import cart from "../../images/cart.svg";
+import userIcon from "../../images/user.svg"
 
-const MainHeader = ({ login, signingIn, callbackReset, callbackSign, callbackLogout, callbackCart }) => (
+const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callbackLogout, callbackCart }) => (
   <Wrapper>
     <Content>
       <button onClick={callbackReset}>
         <LogoContainer src={logo} alt='Logo' />
       </button>
       <NavigationContainer>
-        {!signingIn && (
-          <button onClick={() => {
+        <button onClick={callbackUser}>
+          <li>
+            <img src={userIcon} alt="user" />
+          </li>
+        </button>
+        <button onClick={() => {
             login ? (
               callbackLogout()
             ) : (
@@ -28,7 +33,6 @@ const MainHeader = ({ login, signingIn, callbackReset, callbackSign, callbackLog
             </span>
           </li>
         </button>
-        )}
         <button onClick={callbackCart}>
           <li>
             <img src={cart} alt="cart" />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Wrapper, Content, SignIn, Login } from "./SigninPanel.styles";
 
-const SiginPanel = ({ users, setUser, setLogin, setSignin }) => {
+const SiginPanel = ({ users, setUser, setLogin, setSignin, setAdmin }) => {
 
   const [ nome, setNome ] = useState("");
   const [ sobrenome, setSobrenome ] = useState("");
@@ -22,7 +22,12 @@ const SiginPanel = ({ users, setUser, setLogin, setSignin }) => {
       'nome': nome,
       'sobrenome': sobrenome,
       'email': email,
-      'password': password
+      'password': password,
+      'sexo': '',
+      'nascimento': '',
+      'endereco': '',
+      'ddd': '',
+      'telefone': ''
     });
 
     setLogin(true);
@@ -70,12 +75,16 @@ const SiginPanel = ({ users, setUser, setLogin, setSignin }) => {
   const loginAccount = () => {
     if (emailLogin !== "" && passwordLogin !== "") {
 
+      if (emailLogin === "admin" && passwordLogin === "admin") {
+        setAdmin(true);
+      }
+
       var emailFinded = false;
       var passwordRight = false;
 
       users.forEach(user => {
         if (user['email'] === emailLogin) {
-          emailFinded = true.valueOf;
+          emailFinded = true;
           if (user['password'] === passwordLogin) {
             setUserLogin(user);
             passwordRight = true;
