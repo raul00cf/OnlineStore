@@ -154,7 +154,7 @@ const initialProducts = [{
   'description': 'Máscara filtro importada com luzes RBG Razer'
 }];
 
-const initialProduct = 11;
+const initialProduct = 0;
 
 var users = [adminUser];
 

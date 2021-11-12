@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Wrapper, Content, LogoContainer, NavigationContainer } from './MainHeader.styles';
 
-import logo from "../../images/masc1.png";
+import logo from "../../images/logo.png";
 import signIn from "../../images/signin.svg";
 import cart from "../../images/cart.svg";
 import userIcon from "../../images/user.svg"
