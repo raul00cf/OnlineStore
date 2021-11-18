@@ -174,7 +174,7 @@ const Home = () => {
   const [ signingIn, setSigningIn ] = useState(false);
   const [ login, setLogin ] = useState(false);
   const [ user, setUser ] = useState(initialUser);
-  const [ products, setProducts ] = useState(initialProducts)
+  const [ products, ] = useState(initialProducts)
   const [ product, setProduct ] = useState(initialProduct);
   const [ filter, setFilter ] = useState('mascara');
   const [ showingProduct, setShowingProduct ] = useState(null);
@@ -241,7 +241,7 @@ const Home = () => {
             var finded = -1;
 
             for (var i=0; i < cart.length; i++) {
-              if (cart[i].productId == newItem.productId) {
+              if (cart[i].productId === newItem.productId) {
                 finded = i;
                 break;
               }
