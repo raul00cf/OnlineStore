@@ -53,7 +53,8 @@ const initialProducts = [{
   'price': 23.50,
   'storage': 15,
   'sold': 0,
-  'description': 'Máscara preta de tecido contra o Covid-19'
+  'description': 'Máscara preta de tecido contra o Covid-19',
+  'id': 0
 },
 {
   'tipo': 'mascara',
@@ -62,7 +63,8 @@ const initialProducts = [{
   'price': 15.75,
   'storage': 8,
   'sold': 1,
-  'description': 'Máscara confortável de pano contra o Covid-19'
+  'description': 'Máscara confortável de pano contra o Covid-19',
+  'id': 1
 },
 {
   'tipo': 'mascara',
@@ -71,7 +73,8 @@ const initialProducts = [{
   'price': 29.99,
   'storage': 25,
   'sold': 3,
-  'description': 'Máscara importada de pano quadriculado preta'
+  'description': 'Máscara importada de pano quadriculado preta',
+  'id': 2
 },
 {
   'tipo': 'mascara',
@@ -80,7 +83,8 @@ const initialProducts = [{
   'price': 15.75,
   'storage': 83,
   'sold': 17,
-  'description': 'Máscara nacional cirurgica branca'
+  'description': 'Máscara nacional cirurgica branca',
+  'id': 3
 },
 {
   'tipo': 'mascara',
@@ -89,7 +93,8 @@ const initialProducts = [{
   'price': 15.75,
   'storage': 76,
   'sold': 24,
-  'description': 'Máscara nacional cirurgica azul'
+  'description': 'Máscara nacional cirurgica azul',
+  'id': 4
 },
 {
   'tipo': 'mascara',
@@ -98,7 +103,8 @@ const initialProducts = [{
   'price': 59.99,
   'storage': 14,
   'sold': 1,
-  'description': 'Máscara importada 3M branca contra Covid-19'
+  'description': 'Máscara importada 3M branca contra Covid-19',
+  'id': 5
 },{
   'tipo': 'filtro',
   'nome': 'Máscara filtro Darth Vader',
@@ -106,7 +112,8 @@ const initialProducts = [{
   'price': 79.99,
   'storage': 10,
   'sold': 0,
-  'description': 'Máscara filtro inspirada Darth Vader para Covid-19'
+  'description': 'Máscara filtro inspirada Darth Vader para Covid-19',
+  'id': 6
 },
 {
   'tipo': 'filtro',
@@ -115,7 +122,8 @@ const initialProducts = [{
   'price': 65.50,
   'storage': 15,
   'sold': 5,
-  'description': 'Máscara filtro simples branca'
+  'description': 'Máscara filtro simples branca',
+  'id': 7
 },
 {
   'tipo': 'filtro',
@@ -124,7 +132,8 @@ const initialProducts = [{
   'price': 59.99,
   'storage': 8,
   'sold': 2,
-  'description': 'Máscara filtro importada de alumínio'
+  'description': 'Máscara filtro importada de alumínio',
+  'id': 8
 },
 {
   'tipo': 'filtro',
@@ -133,7 +142,8 @@ const initialProducts = [{
   'price': 64.99,
   'storage': 40,
   'sold': 10,
-  'description': 'Máscara filtro nacional de pano cinza contra o Covid-19'
+  'description': 'Máscara filtro nacional de pano cinza contra o Covid-19',
+  'id': 9
 },
 {
   'tipo': 'filtro',
@@ -142,7 +152,8 @@ const initialProducts = [{
   'price': 29.99,
   'storage': 66,
   'sold': 14,
-  'description': 'Máscara filtro de plástico transparente'
+  'description': 'Máscara filtro de plástico transparente',
+  'id': 10
 },
 {
   'tipo': 'filtro',
@@ -151,7 +162,8 @@ const initialProducts = [{
   'price': 99.99,
   'storage': 29,
   'sold': 6,
-  'description': 'Máscara filtro importada com luzes RBG Razer'
+  'description': 'Máscara filtro importada com luzes RBG Razer',
+  'id': 11
 }];
 
 const initialProduct = 0;
@@ -164,9 +176,11 @@ const Home = () => {
   const [ user, setUser ] = useState(initialUser);
   const [ products, setProducts ] = useState(initialProducts)
   const [ product, setProduct ] = useState(initialProduct);
+  const [ filter, setFilter ] = useState('mascara');
   const [ showingProduct, setShowingProduct ] = useState(null);
   const [ admin, setAdmin ] = useState(false);
   const [ userPage, setUserPage ] = useState(false);
+  const [ cart, setCart ] = useState([]);
 
   return (
     <>
@@ -190,9 +204,25 @@ const Home = () => {
           setUserPage(false);
           setAdmin(false);
         }}
-        callbackCart={() => {console.log(signingIn)}}
+        callbackCart={() => {console.log(cart)}}
+        cartNumber={cart.length}
       />
-      <ProductHeader />
+      <ProductHeader
+        maskFilter={() => {
+          if (filter !== 'mascara') {
+            setFilter('mascara');
+            setProduct(0);
+          }
+          setShowingProduct(false);
+        }}
+        filtFilter={() => {
+          if (filter !== 'filtro') {
+            setFilter('filtro');
+            setProduct(6);
+          }
+          setShowingProduct(false);
+        }}  
+      />
       <Divider />
       {signingIn ? (
         <SiginPanel users={users} setUser={(us) => {
@@ -205,9 +235,73 @@ const Home = () => {
       ) : (userPage ? (
         <UserPanel admin={admin} user={user} products={products} />
       ) : (showingProduct ? (
-          <Product product={products[product]} />
+          <Product
+           product={products[product]} 
+           addCart={(newItem) => {
+            var finded = -1;
+
+            for (var i=0; i < cart.length; i++) {
+              if (cart[i].productId == newItem.productId) {
+                finded = i;
+                break;
+              }
+            }
+
+            if (finded !== -1) {
+              var copy = cart;
+              copy[i].quantity += newItem.quantity;
+              setCart(copy);
+            }
+            else {
+              setCart([...cart, newItem])
+            }
+           }}
+          />
         ) : (
-          <HeroImage product={products[product]} callback={() => {setShowingProduct(true)}} />
+          <HeroImage 
+            product={products[product]} 
+            callback={() => {setShowingProduct(true)}} 
+            prevProduct={() => {
+              var minimun;
+              var maximun;
+
+              if (filter === 'mascara') {
+                minimun = 0;
+                maximun = 5;
+              }
+              else {
+                minimun = 6;
+                maximun = 11;
+              }
+
+              if (product === minimun) {
+                setProduct(maximun);
+              }
+              else {
+                setProduct(product - 1);
+              }
+            }}
+            nextProduct={() => {
+              var minimun;
+              var maximun;
+
+              if (filter === 'mascara') {
+                minimun = 0;
+                maximun = 5;
+              }
+              else {
+                minimun = 6;
+                maximun = 11;
+              }
+
+              if (product === maximun) {
+                setProduct(minimun);
+              }
+              else {
+                setProduct(product + 1);
+              }
+            }}
+          />
         )
       ))}
     </>

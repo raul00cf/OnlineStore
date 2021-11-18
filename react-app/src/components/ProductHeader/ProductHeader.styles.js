@@ -5,12 +5,20 @@ export const Wrapper = styled.div`
   height: 35px;
   display: block;
   background: var(--background);
+
+  @media screen and (max-width: 1250px) {
+    min-width: 600px;
+  }
 `;
 
 export const Content = styled.div`
   display: flex;
   justify-content: center;
   vertical-align:top;
+
+  @media screen and (max-width: 1250px) {
+
+  }
 `;
 
 export const Option = styled.button`

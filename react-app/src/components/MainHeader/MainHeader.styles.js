@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   background: var(--background);
   border-bottom: 1px solid;
   border-color: #bdbdbd;
+
+  @media screen and (max-width: 1250px) {
+    height: fit-content;
+    min-width: 600px;
+  }
 `;
 
 export const Content = styled.div`
@@ -21,6 +26,11 @@ export const Content = styled.div`
     border: none;
     background: none;
   }
+
+  @media screen and (max-width: 1250px) {
+    height: fit-content;
+    width: 100%;
+  }
 `;
 
 export const LogoContainer = styled.img`
@@ -33,6 +43,8 @@ export const LogoContainer = styled.img`
   :hover {
     opacity: 0.75;
   }
+
+
 `;
 
 export const NavigationContainer = styled.ul`

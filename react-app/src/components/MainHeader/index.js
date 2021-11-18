@@ -7,7 +7,7 @@ import signIn from "../../images/signin.svg";
 import cart from "../../images/cart.svg";
 import userIcon from "../../images/user.svg"
 
-const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callbackLogout, callbackCart }) => (
+const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callbackLogout, callbackCart, cartNumber }) => (
   <Wrapper>
     <Content>
       <button onClick={callbackReset}>
@@ -40,7 +40,7 @@ const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callback
             <p>
               <img src={cart} alt="cart" />
               <span>
-                0
+                {cartNumber}
               </span>
             </p>
           </li>

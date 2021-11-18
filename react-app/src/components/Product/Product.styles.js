@@ -7,6 +7,12 @@ export const Wrapper = styled.div`
   padding-top: 40px;
   padding-bottom: 40px;
   display: flex;
+
+  @media screen and (max-width: 1250px) {
+    height: fit-content;
+    min-height: 743px;
+    min-width: 600px;
+  }
 `;
 
 export const Content = styled.div`
@@ -16,17 +22,28 @@ export const Content = styled.div`
   box-shadow: 10px 10px 5px gray;
   background-color: white;
   display: flex;
+
+  @media screen and (max-width: 1250px) {
+    display: block;
+    width: 580px;
+  }
 `;
 
 export const Image = styled.div`
 
   img {
-    width: 500px;
-    height: 500px;
-    border-radius: 20px;
-    margin: 40px;
+    width: 580px;
+    height: 580px;
+    border-radius: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
+  @media screen and (max-width: 1250px) {
+    width: 100%;
+  }
 `;
 
 export const Info = styled.div`
@@ -38,6 +55,13 @@ export const Info = styled.div`
 
   p {
     font-size: var(--fontSuperBig);
+  }
+
+  @media screen and (max-width: 1250px) {
+    margin-top: 0px;
+    margin-right: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 `;
 
@@ -92,5 +116,26 @@ export const Price = styled.div`
 `;
 
 export const Shopping = styled.div`
-  
+  margin-top: 100px;
+  font-size: large;
+
+  button {
+    margin: 50px auto;
+    font-display: middle;
+    background-color:rgb(112, 19, 6);
+    width: 200px;
+    height: 70px;
+    color: white;
+    font-size: larger;
+    display: block;
+  }
+
+  @media screen and (max-width: 1250px) {
+    margin-top: 20px;
+
+    button {
+      margin: 20px auto;
+      margin-bottom: 0px;
+    }
+  }
 `;
