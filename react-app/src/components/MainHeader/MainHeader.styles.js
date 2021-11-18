@@ -82,6 +82,17 @@ export const NavigationContainer = styled.ul`
         margin-left: 3px;
         font-size: 17px;
       }
+
+      .cart-number {
+        display: inline-block;
+        padding: .2rem .2rem;
+        border-radius: 50%;
+        font-size: 10px;
+        text-align: center;
+        background: #1779ba;
+        color: #fefefe;
+        position: relative;
+      }
     }
   }
 `;

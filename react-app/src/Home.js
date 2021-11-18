@@ -7,6 +7,7 @@ import ProductHeader from './components/ProductHeader';
 import SiginPanel from "./components/SigninPanel";
 import Product from "./components/Product";
 import UserPanel from "./components/UserPanel";
+import BuyProcess from "./components/BuyProcess";
 
 import Masc1 from './images/masc1.png';
 import Masc2 from './images/masc2.png';
@@ -181,7 +182,114 @@ const Home = () => {
   const [ admin, setAdmin ] = useState(false);
   const [ userPage, setUserPage ] = useState(false);
   const [ cart, setCart ] = useState([]);
+  const [ buying, setBuying ] = useState(false);
 
+
+ function decide() {
+  
+  if (signingIn) {
+    return (
+      <SiginPanel users={users} setUser={(us) => {
+        if (!users.includes(us)) {
+          users.push(us);
+        }
+        setUser(us);
+        console.log(users);
+      }} setLogin={setLogin} setSignin={setSigningIn} setAdmin={setAdmin} />
+    )
+  }
+
+  else if (userPage) {
+    return (
+      <UserPanel admin={admin} user={user} products={products} />
+    )
+  }
+
+  else if (showingProduct) {
+    return (
+      <Product
+       product={products[product]} 
+       addCart={(newItem) => {
+        var finded = -1;
+
+        for (var i=0; i < cart.length; i++) {
+          if (cart[i].productId === newItem.productId) {
+            finded = i;
+            break;
+          }
+        }
+
+        if (finded !== -1) {
+          var copy = cart;
+          copy[i].quantity += newItem.quantity;
+          setCart(copy);
+        }
+        else {
+          setCart([...cart, newItem])
+        }
+       }}
+      />
+    )
+  }
+
+  else if (buying) {
+    return (
+      <>
+      <BuyProcess />
+      </>
+    )
+  }
+
+  else { 
+    return (
+      <HeroImage 
+       product={products[product]} 
+       callback={() => {setShowingProduct(true)}} 
+       prevProduct={() => {
+        var minimun;
+        var maximun;
+
+        if (filter === 'mascara') {
+          minimun = 0;
+          maximun = 5;
+        }
+        else {
+          minimun = 6;
+          maximun = 11;
+        }
+
+        if (product === minimun) {
+          setProduct(maximun);
+        }
+        else {
+          setProduct(product - 1);
+        }
+      }}
+      nextProduct={() => {
+        var minimun;
+        var maximun;
+
+        if (filter === 'mascara') {
+          minimun = 0;
+          maximun = 5;
+        }
+        else {
+          minimun = 6;
+          maximun = 11;
+        }
+
+        if (product === maximun) {
+          setProduct(minimun);
+        }
+        else {
+          setProduct(product + 1);
+        }
+      }}
+    /> 
+  )
+  }
+}
+  
   return (
     <>
       <MainHeader 
@@ -204,7 +312,7 @@ const Home = () => {
           setUserPage(false);
           setAdmin(false);
         }}
-        callbackCart={() => {console.log(cart)}}
+        callbackCart={() => {console.log(cart) ; setBuying(true)}}
         cartNumber={cart.length}
       />
       <ProductHeader
@@ -224,87 +332,10 @@ const Home = () => {
         }}  
       />
       <Divider />
-      {signingIn ? (
-        <SiginPanel users={users} setUser={(us) => {
-          if (!users.includes(us)) {
-            users.push(us);
-          }
-          setUser(us);
-          console.log(users);
-        }} setLogin={setLogin} setSignin={setSigningIn} setAdmin={setAdmin} />
-      ) : (userPage ? (
-        <UserPanel admin={admin} user={user} products={products} />
-      ) : (showingProduct ? (
-          <Product
-           product={products[product]} 
-           addCart={(newItem) => {
-            var finded = -1;
 
-            for (var i=0; i < cart.length; i++) {
-              if (cart[i].productId === newItem.productId) {
-                finded = i;
-                break;
-              }
-            }
-
-            if (finded !== -1) {
-              var copy = cart;
-              copy[i].quantity += newItem.quantity;
-              setCart(copy);
-            }
-            else {
-              setCart([...cart, newItem])
-            }
-           }}
-          />
-        ) : (
-          <HeroImage 
-            product={products[product]} 
-            callback={() => {setShowingProduct(true)}} 
-            prevProduct={() => {
-              var minimun;
-              var maximun;
-
-              if (filter === 'mascara') {
-                minimun = 0;
-                maximun = 5;
-              }
-              else {
-                minimun = 6;
-                maximun = 11;
-              }
-
-              if (product === minimun) {
-                setProduct(maximun);
-              }
-              else {
-                setProduct(product - 1);
-              }
-            }}
-            nextProduct={() => {
-              var minimun;
-              var maximun;
-
-              if (filter === 'mascara') {
-                minimun = 0;
-                maximun = 5;
-              }
-              else {
-                minimun = 6;
-                maximun = 11;
-              }
-
-              if (product === maximun) {
-                setProduct(minimun);
-              }
-              else {
-                setProduct(product + 1);
-              }
-            }}
-          />
-        )
-      ))}
-    </>
+      {decide()}
+       
+    </>  
   )
 }
 

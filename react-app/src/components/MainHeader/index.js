@@ -39,7 +39,7 @@ const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callback
           <li>
             <p>
               <img src={cart} alt="cart" />
-              <span>
+              <span className="cart-number">
                 {cartNumber}
               </span>
             </p>
