@@ -38,8 +38,8 @@ const MainHeader = ({ login, callbackUser, callbackReset, callbackSign, callback
         <button onClick={callbackCart}>
           <li>
             <p>
-              <img src={cart} alt="cart" />
-              <span className="cart-number">
+              <img src={cart} alt="cart" className="cart-number" data-badge={cartNumber}/>
+              <span>
                 {cartNumber}
               </span>
             </p>
