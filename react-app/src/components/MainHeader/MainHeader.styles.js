@@ -84,22 +84,16 @@ export const NavigationContainer = styled.ul`
       }
 
       .cart-number {
+        display: inline-block;
+        padding: .2rem .2rem;
+        border-radius: 50%;
+        font-size: 10px;
+        text-align: center;
+        background: #1779ba;
+        color: #fefefe;
         position: relative;
+        top: -10px;
       }
-      .cart-number[data-badge]:after {
-        content:attr(data-badge);
-        position:absolute;
-        top:-10px;
-        right:-10px;
-        font-size:.7em;
-        background:green;
-        color:white;
-        width:18px;height:18px;
-        text-align:center;
-        line-height:18px;
-        border-radius:50%;
-        box-shadow:0 0 1px #333;
-     }
     }
   }
 `;
