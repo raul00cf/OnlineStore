@@ -313,7 +313,13 @@ const Home = () => {
           setUserPage(false);
           setAdmin(false);
         }}
-        callbackCart={() => {console.log(cart) ; setBuying(true)}}
+        callbackCart={() => {
+          console.log(cart) ; 
+          setBuying(true);
+          setShowingProduct(false);
+          setUserPage(false);
+          setSigningIn(false);
+        }}
         cartNumber={cart.length}
       />
       <ProductHeader
