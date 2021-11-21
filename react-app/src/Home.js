@@ -235,7 +235,7 @@ const Home = () => {
   else if (buying) {
     return (
       <>
-      <BuyProcess />
+      <BuyProcess boughtItemsNumber={cart.length} />
       </>
     )
   }
@@ -304,6 +304,7 @@ const Home = () => {
           setSigningIn(false);
           setUserPage(false);
           setShowingProduct(false);
+          setBuying(false);
         }}
         callbackSign={() => setSigningIn(true)} 
         callbackLogout={() => {

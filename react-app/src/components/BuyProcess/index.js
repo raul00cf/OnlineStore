@@ -19,9 +19,10 @@ function addCards() {
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 className="card-title">Máscara preta tecido</h5>
+                        <p className="card-text">Mascara preta de tecido contra o COVID-19.</p>
+                        <p className="card-text"><small className="text-muted">R$23,50</small></p>
+                        <button type="button" class="btn btn-primary remove-btn-pos">Remover do Carrinho</button>
                     </div>
                 </div>
             </div>
@@ -29,9 +30,18 @@ function addCards() {
     )
 }
 
+function count(boughtItemsNumber) {
 
+    let code = []
 
-const BuyProcess = () => (
+    for(let i = 0 ; i < boughtItemsNumber; i++) {
+      code[i] = addCards()     
+    }
+
+    return code
+}
+
+const BuyProcess = ({ boughtItemsNumber }) => (
     <>
      <Wrapper>
         <div>
@@ -43,8 +53,7 @@ const BuyProcess = () => (
                     </ol>
                 </nav>
             </div>
-            {addCards()}
-            {addCards()}
+            {count(boughtItemsNumber)}
         </div>
      </Wrapper>   
     </>
